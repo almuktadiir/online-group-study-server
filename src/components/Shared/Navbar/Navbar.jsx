@@ -24,6 +24,30 @@ const Navbar = () => {
                 isPending ? "pending" : isActive ? "active" : ""
             }>Home</NavLink>
         </li>
+        <li><NavLink
+            to="/createAssignments"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+            }>Create Assignments</NavLink>
+        </li>
+        <li><NavLink
+            to="/allAssignments"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+            }>All Assignments</NavLink>
+        </li>
+        <li><NavLink
+            to="/myAssignments"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+            }>My Assignments</NavLink>
+        </li>
+        <li><NavLink
+            to="/submittedAssignments"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+            }>Submitted Assignments</NavLink>
+        </li>
 
     </>
 
