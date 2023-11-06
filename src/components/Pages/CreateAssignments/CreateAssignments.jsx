@@ -1,9 +1,12 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const CreateAssignments = () => {
     const {user} = useContext(AuthContext);
+    const [dateCalender, setDateCalender] = useState(null);
 
     const handleCreateAssignment = e => {
         e.preventDefault();
@@ -48,7 +51,7 @@ const CreateAssignments = () => {
 
                 <div className="flex gap-6 mb-3">
                     <input type="text" name="image" placeholder="Image URL" className="input input-bordered input-warning w-1/2" />
-                    <input type="date" name="duedate" placeholder="Due Date" className="input input-bordered input-warning w-1/2" />
+                    <DatePicker className="input input-bordered input-warning w-full" name="duedate" placeholderText="Due Date" selected={dateCalender} onChange={(date)=>setDateCalender(date)}></DatePicker>
 
                     <select
                         id="difficulty"
