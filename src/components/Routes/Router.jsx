@@ -20,11 +20,13 @@ import SubmittedAssignments from "../Pages/SubmittedAssignments/SubmittedAssignm
       children: [
         {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: ()=> fetch('http://localhost:5000/studyFeatures')
         },
         {
             path: '/allAssignments',
-            element: <AllAssignments></AllAssignments>
+            element: <AllAssignments></AllAssignments>,
+            loader: ()=> fetch('http://localhost:5000/allAssignments')
         },
         {
             path: '/myAssignments',

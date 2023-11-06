@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from 'sweetalert2'
 
 
 const CreateAssignments = () => {
@@ -30,33 +31,40 @@ const CreateAssignments = () => {
             },
             body: JSON.stringify(assignment)
         })
-        .then(res => {
-            console.log(res.json);
-        })
-        .catch(err => {
-            console.log(err.message);
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'success',
+                    text: 'Assignment created successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+            console.log(data);
+            e.target.reset()
         })
     }
 
 
     return (
-        <div className="max-w-7xl mx-auto my-10 text-center bg-[#ebf6e2ff] shadow-lg p-5 rounded-lg">
+        <div className="max-w-7xl mx-auto my-16 text-center bg-[#ebf6e2ff] shadow-lg p-5 rounded-lg">
             <h2 className="mb-3 font-montez font-semibold text-xl">Create Assignment</h2>
             <form onSubmit={handleCreateAssignment}>
 
                 <div className="flex gap-6 mb-3">
-                    <input type="text" name="title" placeholder="Assignment Title" className="input input-bordered input-warning w-1/2" />
-                    <input type="number" name="marks" placeholder="Marks" className="input input-bordered input-warning w-1/2" />
+                    <input type="text" name="title" placeholder="Assignment Title" className="input input-bordered input-warning w-1/2" required/>
+                    <input type="number" name="marks" placeholder="Marks" className="input input-bordered input-warning w-1/2" required/>
                 </div>
 
                 <div className="flex gap-6 mb-3">
-                    <input type="text" name="image" placeholder="Image URL" className="input input-bordered input-warning w-1/2" />
-                    <DatePicker className="input input-bordered input-warning w-full" name="duedate" placeholderText="Due Date" selected={dateCalender} onChange={(date)=>setDateCalender(date)}></DatePicker>
+                    <input type="text" name="image" placeholder="Image URL" className="input input-bordered input-warning w-1/2" required/>
+                    <DatePicker className="input input-bordered input-warning w-full" name="duedate" placeholderText="Due Date" selected={dateCalender} onChange={(date)=>setDateCalender(date)} required></DatePicker>
 
                     <select
                         id="difficulty"
                         name="difficulty"
-                        className="input input-bordered input-warning w-1/2">
+                        className="input input-bordered input-warning w-1/2" required>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
@@ -64,7 +72,7 @@ const CreateAssignments = () => {
                 </div>
 
                 <div className="text-center mb-3">
-                    <textarea name="description" id="" cols="30" rows="20" className="input input-bordered input-warning w-1/2" placeholder="Description"></textarea>
+                    <textarea name="description" id="" cols="30" rows="20" className="input input-bordered input-warning w-1/2" placeholder="Description" required></textarea>
                 </div>
                 <input type="submit" value="Create Assignment" className="w-1/4 text-center btn btn-warning btn-outline mx-auto text-lg" />
             </form>

@@ -26,7 +26,8 @@ const Register = () => {
             console.log(user);
             handleUpdateProfile(name, photo)
             .then(res =>{
-                console.log(res.user);
+                const user = res.user;
+                console.log(user);
             })
             navigate(location?.state ? location?.state : '/')
         })
