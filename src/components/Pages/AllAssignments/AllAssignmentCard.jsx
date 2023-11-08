@@ -12,8 +12,8 @@ const AllAssignmentCard = ({ usersAssignment }) => {
                 <p>Level - {difficulty}</p>
                 <div className="card-actions justify-center">
                     <div className="btn-group">
-                        <Link to={`/allAssignments/${_id}`}><button className="btn bg-[#0200d6] text-white">View Assignment</button></Link>
-                        <button className="btn bg-[#060061] text-white">Update Assignment</button>
+                        <Link to={`/allAssignmentsDetail/${_id}`}><button className="btn bg-[#0200d6] text-white">View Assignment</button></Link>
+                        <Link to={`/allAssignmentsUpdate/${_id}`}><button className="btn bg-[#060061] text-white">Update Assignment</button></Link>
                     </div>
                 </div>
             </div>

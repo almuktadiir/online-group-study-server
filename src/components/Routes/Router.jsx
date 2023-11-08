@@ -11,6 +11,7 @@ import AllAssignments from "../Pages/AllAssignments/AllAssignments";
 import MyAssignments from "../Pages/MyAssignments/MyAssignments";
 import SubmittedAssignments from "../Pages/SubmittedAssignments/SubmittedAssignments";
 import AllAssignmentDetails from "../Pages/AllAssignments/AllAssignmentDetails";
+import AllAssignmentUpdate from "../Pages/AllAssignments/AllAssignmentUpdate";
 
 
   const router = createBrowserRouter([
@@ -30,9 +31,14 @@ import AllAssignmentDetails from "../Pages/AllAssignments/AllAssignmentDetails";
             loader: ()=> fetch('http://localhost:5000/allAssignments')
         },
         {
-            path: '/allAssignments/:id',
+            path: '/allAssignmentsDetail/:id',
             element: <AllAssignmentDetails></AllAssignmentDetails>,
             // loader: ({params})=> fetch(`http://localhost:5000/allAssignments/${params._id}`)
+            loader: ()=> fetch(`http://localhost:5000/allAssignments`)
+        },
+        {
+            path: '/allAssignmentsUpdate/:id',
+            element: <AllAssignmentUpdate></AllAssignmentUpdate>,
             loader: ()=> fetch(`http://localhost:5000/allAssignments`)
         },
         {
