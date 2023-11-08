@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const AllAssignmentDetails = () => {
@@ -17,10 +18,30 @@ const AllAssignmentDetails = () => {
         const pdf = form.get('pdf');
         const note = form.get('note');
         const status = 'pending';
-        const userEmail = user?.email;
-        const pendingAssignment = {pdf, note, status, userEmail};
+        const submittedUserEmail = user?.email;
+        // const examineeName = user?.displayName;
+        const pendingAssignment = {pdf, note, status, submittedUserEmail, title, marks};
         console.log(pendingAssignment);
-        e.target.reset()
+
+        fetch('http://localhost:5000/submitAssignment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(pendingAssignment)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Submitted Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'cool'
+                })
+            }
+            console.log(data);
+            e.target.reset();
+        })
     }
 
 
