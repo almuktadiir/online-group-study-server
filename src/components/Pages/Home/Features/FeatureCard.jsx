@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 
 const FeatureCard = ({ feature }) => {
-    const { _id, title, description, image_url } = feature;
+    const { title, description, image_url } = feature;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
@@ -12,7 +13,7 @@ const FeatureCard = ({ feature }) => {
                 <h2 className="card-title">{title}</h2>
                 <p>{description}</p>
                 <div className="card-actions">
-                    <button className="btn bg-green-300">Join Now</button>
+                    <Link to={'/allAssignments'}><button className="btn bg-green-300">Join Now</button></Link>
                 </div>
             </div>
         </div>
