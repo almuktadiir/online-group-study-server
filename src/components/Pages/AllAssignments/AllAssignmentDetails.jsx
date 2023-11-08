@@ -76,6 +76,7 @@ const AllAssignmentDetails = () => {
                             </div>
                         </dialog>
                 </div>
+                
             </div>
         </div>
     );
