@@ -1,9 +1,10 @@
 
+import img from '../../../assets/404.jpg'
 
 const Error = () => {
     return (
-        <div>
-            <h2>error page</h2>
+        <div className='max-w-2xl mx-auto mt-36 shadow-2xl rounded-full'>
+            <img src={img} alt="" />
         </div>
     );
 };
