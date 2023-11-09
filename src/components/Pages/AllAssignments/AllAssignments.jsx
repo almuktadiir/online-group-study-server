@@ -5,7 +5,6 @@ import { useRef, useState } from "react";
 
 const AllAssignments = () => {
     const usersAssignData = useLoaderData();
-    const [assignData, setAssignData] = useState(usersAssignData);
     const inputRef = useRef(null);
     const [selectValue, setSelectValue] = useState('');
     console.log(selectValue);
@@ -37,11 +36,9 @@ const AllAssignments = () => {
                     !selectValue ?
                     <div className="grid grid-cols-3 gap-6">
                     {
-                        assignData.map(usersAssignment => <AllAssignmentCard
+                        usersAssignData.map(usersAssignment => <AllAssignmentCard
                             key={usersAssignment._id}
                             usersAssignment={usersAssignment}
-                            assignData={assignData}
-                            setAssignData={setAssignData}
                         ></AllAssignmentCard>)
                     }
                 </div>

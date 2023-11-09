@@ -44,7 +44,8 @@ import SubmitMarks from "../Pages/SubmittedAssignments/SubmitMarks";
         },
         {
             path: '/myAssignments',
-            element: <MyAssignments></MyAssignments>
+            element: <MyAssignments></MyAssignments>,
+            loader: ()=> fetch('http://localhost:5000/myAssignment')
         },
         {
             path: '/submittedAssignments',
