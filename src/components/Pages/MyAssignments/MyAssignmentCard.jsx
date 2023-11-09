@@ -1,5 +1,5 @@
 import Swal from "sweetalert2";
-
+import PropTypes from 'prop-types';
 
 const MyAssignmentCard = ({ setCurrentUserData,currentUserData, currentUsers }) => {
     const handleDelete = (id) => {
@@ -37,9 +37,6 @@ const MyAssignmentCard = ({ setCurrentUserData,currentUserData, currentUsers }) 
 
     return (
         <div className="card bg-base-100 shadow-xl">
-            {/* <figure className="px-10 pt-10">
-                <img src={currentUsers.image} alt="Shoes" className="rounded-xl h-72 w-full" />
-            </figure> */}
             <div className="card-body items-center text-center">
                 <h2 className="card-title">Assignment Title: {currentUsers.title}</h2>
                 <p>Assignment Status: {currentUsers.status}</p>
@@ -55,3 +52,9 @@ const MyAssignmentCard = ({ setCurrentUserData,currentUserData, currentUsers }) 
 };
 
 export default MyAssignmentCard;
+
+MyAssignmentCard.propTypes = {
+    setCurrentUserData: PropTypes.func,
+    currentUserData: PropTypes.array,
+    currentUsers: PropTypes.object
+}
