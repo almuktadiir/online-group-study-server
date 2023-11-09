@@ -13,6 +13,7 @@ import SubmittedAssignments from "../Pages/SubmittedAssignments/SubmittedAssignm
 import AllAssignmentDetails from "../Pages/AllAssignments/AllAssignmentDetails";
 import AllAssignmentUpdate from "../Pages/AllAssignments/AllAssignmentUpdate";
 import SubmitMarks from "../Pages/SubmittedAssignments/SubmitMarks";
+import PrivateRoute from "./PrivateRoute";
 
 
   const router = createBrowserRouter([
@@ -33,33 +34,33 @@ import SubmitMarks from "../Pages/SubmittedAssignments/SubmitMarks";
         },
         {
             path: '/allAssignmentsDetail/:id',
-            element: <AllAssignmentDetails></AllAssignmentDetails>,
+            element: <PrivateRoute><AllAssignmentDetails></AllAssignmentDetails></PrivateRoute>,
             // loader: ({params})=> fetch(`http://localhost:5000/allAssignments/${params._id}`)
             loader: ()=> fetch(`http://localhost:5000/allAssignments`)
         },
         {
             path: '/allAssignmentsUpdate/:id',
-            element: <AllAssignmentUpdate></AllAssignmentUpdate>,
+            element: <PrivateRoute><AllAssignmentUpdate></AllAssignmentUpdate></PrivateRoute>,
             loader: ()=> fetch(`http://localhost:5000/allAssignments`)
         },
         {
             path: '/myAssignments',
-            element: <MyAssignments></MyAssignments>,
+            element: <PrivateRoute><MyAssignments></MyAssignments></PrivateRoute>,
             loader: ()=> fetch('http://localhost:5000/myAssignment')
         },
         {
             path: '/submittedAssignments',
-            element: <SubmittedAssignments></SubmittedAssignments>,
+            element: <PrivateRoute><SubmittedAssignments></SubmittedAssignments></PrivateRoute>,
             loader: ()=> fetch('http://localhost:5000/submitAssignment')
         },
         {
           path: '/submitAssignMarking/:id',
-          element: <SubmitMarks></SubmitMarks>,
+          element: <PrivateRoute><SubmitMarks></SubmitMarks></PrivateRoute>,
           loader: ()=> fetch('http://localhost:5000/submitAssignment')
         },
         {
             path: '/createAssignments',
-            element: <CreateAssignments></CreateAssignments>
+            element: <PrivateRoute><CreateAssignments></CreateAssignments></PrivateRoute>
         },
         {
             path: '/login',
