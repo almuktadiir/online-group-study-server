@@ -74,7 +74,7 @@ const CreateAssignments = () => {
                 <div className="text-center mb-3">
                     <textarea name="description" id="" cols="30" rows="20" className="input input-bordered input-warning w-1/2" placeholder="Description" required></textarea>
                 </div>
-                <input type="submit" value="Create Assignment" className="w-1/4 text-center btn btn-warning btn-outline mx-auto text-lg" />
+                <input type="submit" value="Create Assignment" className="w-2/4 text-center btn btn-warning btn-outline mx-auto text-lg" />
             </form>
         </div>
     );

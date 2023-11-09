@@ -19,7 +19,7 @@ const AllAssignments = () => {
 
     return (
         <div className="max-w-7xl mx-auto my-12">
-            <div className="mb-10 shadow-lg bg-slate-300 w-[17rem] p-2 flex flex-col rounded-lg text-lg">
+            <div className="mb-10 shadow-lg bg-slate-300 w-[17rem] p-2 flex flex-col mx-auto lg:ml-2.5 rounded-lg text-lg">
                 <form onChange={handleChange}>
 
                     <label htmlFor="pet-select">Choose a difficulty level</label>
@@ -34,7 +34,7 @@ const AllAssignments = () => {
             <div>
                 {
                     !selectValue ?
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
                         usersAssignData.map(usersAssignment => <AllAssignmentCard
                             key={usersAssignment._id}
@@ -43,7 +43,7 @@ const AllAssignments = () => {
                     }
                 </div>
                     :
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {
                         findLevelData.map(usersAssignment => <AllAssignmentCard
                             key={usersAssignment._id}
